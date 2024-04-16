@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Avaliados</h1>
+
+<div id="avaliados">
+  <% @avaliados.each do |avaliado| %>
+    <%= render avaliado %>
+    <p>
+      <%= link_to "Show this avaliado", avaliado %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New avaliado", new_avaliado_path %>

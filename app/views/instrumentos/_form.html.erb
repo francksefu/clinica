@@ -1,0 +1,42 @@
+<%= form_with(model: instrumento) do |form| %>
+  <% if instrumento.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(instrumento.errors.count, "error") %> prohibited this instrumento from being saved:</h2>
+
+      <ul>
+        <% instrumento.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :pergunta_um, style: "display: block" %>
+    <%= form.text_area :pergunta_um %>
+  </div>
+
+  <div>
+    <%= form.label :pergunta_dois, style: "display: block" %>
+    <%= form.text_area :pergunta_dois %>
+  </div>
+
+  <div>
+    <%= form.label :pergunta_tres, style: "display: block" %>
+    <%= form.text_area :pergunta_tres %>
+  </div>
+
+  <div>
+    <%= form.label :pergunta_quatro, style: "display: block" %>
+    <%= form.text_area :pergunta_quatro %>
+  </div>
+
+  <div>
+    <%= form.label :pergunta_cinco, style: "display: block" %>
+    <%= form.text_area :pergunta_cinco %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

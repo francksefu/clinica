@@ -1,0 +1,2 @@
+module AvaliadosHelper
+end
