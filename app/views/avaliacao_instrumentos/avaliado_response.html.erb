@@ -1,0 +1,100 @@
+<h1>Avaliado response</h1>
+
+<%= form_with(model: @avaliacao_instrumento, url: avaliacao_instrumento_avaliado_response_path) do |form| %>
+  <% if @avaliacao_instrumento.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(avaliacao_instrumento.errors.count, "error") %> prohibited this avaliacao_instrumento from being saved:</h2>
+
+      <ul>
+        <% @avaliacao_instrumento.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h1><%= @avaliacao_instrumento.instrumento.titulo %></h1>
+
+  <div>
+    <h2><%= @avaliacao_instrumento.instrumento.pergunta_um %></h2>
+    <%= form.radio_button :pergunt_um, "Muito desconfortável", id: "um_3" %>
+    <%= form.label :first_response, "Muito desconfortável"%> <br>
+
+    <%= form.radio_button :pergunt_um, "ligeiramente desconfortável", id: "um_2" %>
+    <%= form.label :first_response1, "ligeiramente desconfortável"%><br>
+
+    <%= form.radio_button :pergunt_um, "confortável", id: "um_1" %>
+    <%= form.label :first_response2, "confortável"%><br>
+
+    <%= form.radio_button :pergunt_um, "muito confortável", id: "um_0" %>
+    <%= form.label :first_response3, "muito confortável"%><br>
+  </div>
+
+  <div>
+    <h2><%= @avaliacao_instrumento.instrumento.pergunta_dois %></h2>
+    <%= form.radio_button :pergunt_dois, "Muito desconfortável", id: "dois_3" %>
+    <%= form.label :first_response, "Muito desconfortável"%> <br>
+
+    <%= form.radio_button :pergunt_dois, "ligeiramente desconfortável", id: "dois_2" %>
+    <%= form.label :first_response1, "ligeiramente desconfortável"%><br>
+
+    <%= form.radio_button :pergunt_dois, "confortável", id: "dois_1" %>
+    <%= form.label :first_response2, "confortável"%><br>
+
+    <%= form.radio_button :pergunt_dois, "muito confortável", id: "dois_0" %>
+    <%= form.label :first_response3, "muito confortável"%><br>
+  </div>
+
+  <div>
+    <h2><%= @avaliacao_instrumento.instrumento.pergunta_tres %></h2>
+    <%= form.radio_button :pergunt_tres, "Muito desconfortável", id: "tres_3" %>
+    <%= form.label :first_response, "Muito desconfortável"%> <br>
+
+    <%= form.radio_button :pergunt_tres, "ligeiramente desconfortável", id: "tres_2" %>
+    <%= form.label :first_response1, "ligeiramente desconfortável"%><br>
+
+    <%= form.radio_button :pergunt_tres, "confortável", id: "tres_1" %>
+    <%= form.label :first_response2, "confortável"%><br>
+
+    <%= form.radio_button :pergunt_tres, "muito confortável", id: "tres_0" %>
+    <%= form.label :first_response3, "muito confortável"%><br>
+  </div>
+
+  <div>
+    <h2><%= @avaliacao_instrumento.instrumento.pergunta_quatro %></h2>
+    <%= form.radio_button :pergunt_quatro, "Muito desconfortável", id: "quatro_3" %>
+    <%= form.label :first_response, "Muito desconfortável"%> <br>
+
+    <%= form.radio_button :pergunt_quatro, "ligeiramente desconfortável", id: "quatro_2" %>
+    <%= form.label :first_response1, "ligeiramente desconfortável"%><br>
+
+    <%= form.radio_button :pergunt_quatro, "confortável", id: "quatro_1" %>
+    <%= form.label :first_response2, "confortável"%><br>
+
+    <%= form.radio_button :pergunt_quatro, "muito confortável", id: "quatro_0" %>
+    <%= form.label :first_response3, "muito confortável"%><br>
+  </div>
+
+  <div>
+    <h2><%= @avaliacao_instrumento.instrumento.pergunta_cinco %></h2>
+    <%= form.radio_button :pergunt_cinco, "Muito desconfortável", id: "cinco_3" %>
+    <%= form.label :first_response, "Muito desconfortável"%> <br>
+
+    <%= form.radio_button :pergunt_cinco, "ligeiramente desconfortável", id: "cinco_2" %>
+    <%= form.label :first_response1, "ligeiramente desconfortável"%><br>
+
+    <%= form.radio_button :pergunt_cinco, "confortável", id: "cinco_1" %>
+    <%= form.label :first_response2, "confortável"%><br>
+
+    <%= form.radio_button :pergunt_cinco, "muito confortável", id: "cinco_0" %>
+    <%= form.label :first_response3, "muito confortável"%><br>
+  </div>
+
+  
+  <div>
+    <%= form.hidden_field :pontuacao %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

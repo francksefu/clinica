@@ -1,4 +1,4 @@
-<%= form_with(model: avaliado) do |form| %>
+<%= form_with(model: avaliado, url: avaliacao_instrumento_avaliados_path) do |form| %>
   <% if avaliado.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(avaliado.errors.count, "error") %> prohibited this avaliado from being saved:</h2>

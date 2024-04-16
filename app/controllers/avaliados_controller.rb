@@ -13,6 +13,7 @@ class AvaliadosController < ApplicationController
   # GET /avaliados/new
   def new
     @avaliado = Avaliado.new
+    @avaliacao_instrumento = AvaliacaoInstrumento.find(params[:avaliacao_instrumento_id])
   end
 
   # GET /avaliados/1/edit
@@ -21,11 +22,11 @@ class AvaliadosController < ApplicationController
 
   # POST /avaliados or /avaliados.json
   def create
-    @avaliado = Avaliado.new(avaliado_params)
-
+    @avaliacao_instrumento = AvaliacaoInstrumento.find(params[:avaliacao_instrumento_id])
+    @avaliado = @avaliacao_instrumento.avaliados.new(avaliado_params)
     respond_to do |format|
       if @avaliado.save
-        format.html { redirect_to avaliado_url(@avaliado), notice: "Avaliado was successfully created." }
+        format.html { redirect_to avaliacao_instrumento_avaliado_response_path(@avaliacao_instrumento), notice: "Avaliado was successfully created." }
         format.json { render :show, status: :created, location: @avaliado }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -56,6 +56,28 @@ class AvaliacaoInstrumentosController < ApplicationController
     end
   end
 
+  def avaliado_response
+    @avaliacao_instrumento = AvaliacaoInstrumento.find(params[:avaliacao_instrumento_id])
+    respond_to do |format|
+      if @avaliacao_instrumento.avaliados
+        format.html { render :avaliado_response }
+      else
+        format.html { redirect_to new_avaliacao_instrumento_avaliado_path, notice: "complete your response" }
+      end
+    end
+  end
+
+  def update_score
+    @avaliacao_instrumento = AvaliacaoInstrumento.find(params[:avaliacao_instrumento_id])
+    respond_to do |format|
+      if @avaliacao_instrumento.update(estado: "finished", pontuacao: params[:avaliacao_instrumento][:pontuacao].to_i)
+        format.html { redirect_to homes_path, notice: "Avaliacao instrumento was successfully updated."}
+      else
+        format.html { render :avaliado_response, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /avaliacao_instrumentos/1 or /avaliacao_instrumentos/1.json
   def destroy
     @avaliacao_instrumento.destroy!
