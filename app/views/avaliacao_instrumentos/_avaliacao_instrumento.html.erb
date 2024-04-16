@@ -1,12 +1,22 @@
 <div id="<%= dom_id avaliacao_instrumento %>">
   <p>
     <strong>Avaliacao:</strong>
-    <%= avaliacao_instrumento.avaliacao_id %>
+    nome : <%= avaliacao_instrumento.avaliacao.nome %>
+    email : <%= avaliacao_instrumento.avaliacao.email %>
   </p>
 
   <p>
     <strong>Instrumento:</strong>
-    <%= avaliacao_instrumento.instrumento_id %>
+    <%= avaliacao_instrumento.instrumento.titulo %>
+  </p>
+
+  <p>
+    <strong>Estados:</strong>
+    <% if avaliacao_instrumento.estado != 'finished'%>
+      <span> pending </span>
+    <% else %>
+      <span><%= avaliacao_instrumento.estado %></span>
+    <% end %>
   </p>
 
 </div>

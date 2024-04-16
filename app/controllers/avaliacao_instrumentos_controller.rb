@@ -69,13 +69,29 @@ class AvaliacaoInstrumentosController < ApplicationController
 
   def update_score
     @avaliacao_instrumento = AvaliacaoInstrumento.find(params[:avaliacao_instrumento_id])
+    score_total = 0;
+    score_total += check_score(params[:avaliacao_instrumento][:pergunt_um])
+    score_total += check_score(params[:avaliacao_instrumento][:pergunt_dois])
+    score_total += check_score(params[:avaliacao_instrumento][:pergunt_tres])
+    score_total += check_score(params[:avaliacao_instrumento][:pergunt_quatro])
+    score_total += check_score(params[:avaliacao_instrumento][:pergunt_cinco])
     respond_to do |format|
-      if @avaliacao_instrumento.update(estado: "finished", pontuacao: params[:avaliacao_instrumento][:pontuacao].to_i)
-        format.html { redirect_to homes_path, notice: "Avaliacao instrumento was successfully updated."}
+      if @avaliacao_instrumento.update(estado: "finished", pontuacao: score_total)
+        format.html { redirect_to avaliados_path, notice: "Avaliacao instrumento was successfully updated."}
       else
         format.html { render :avaliado_response, status: :unprocessable_entity }
       end
     end
+  end
+
+  def check_score(response)
+    score = case response
+    when 'Muito desconfortável' then 3
+    when 'ligeiramente desconfortável' then 2
+    when 'confortável' then 1
+    when 'muito confortável' then 0
+    end
+    return score
   end
 
   # DELETE /avaliacao_instrumentos/1 or /avaliacao_instrumentos/1.json

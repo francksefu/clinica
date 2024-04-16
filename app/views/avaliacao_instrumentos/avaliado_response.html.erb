@@ -1,6 +1,6 @@
 <h1>Avaliado response</h1>
 
-<%= form_with(model: @avaliacao_instrumento, url: avaliacao_instrumento_avaliado_response_path) do |form| %>
+<%= form_with(model: @avaliacao_instrumento, url: avaliacao_instrumento_update_score_path) do |form| %>
   <% if @avaliacao_instrumento.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(avaliacao_instrumento.errors.count, "error") %> prohibited this avaliacao_instrumento from being saved:</h2>
@@ -87,11 +87,6 @@
 
     <%= form.radio_button :pergunt_cinco, "muito confortável", id: "cinco_0" %>
     <%= form.label :first_response3, "muito confortável"%><br>
-  </div>
-
-  
-  <div>
-    <%= form.hidden_field :pontuacao %>
   </div>
 
   <div>

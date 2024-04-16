@@ -1,6 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @avaliacao_instrumento %>
+<% if @avaliacao_instrumento.estado == 'finished'%>
+  <span> pontuacao : <%= @avaliacao_instrumento.pontuacao %> </span>
+<% end %>
 
 <div>
   <%= link_to "Edit this avaliacao instrumento", edit_avaliacao_avaliacao_instrumento_path(@avaliacao_instrumento) %> |

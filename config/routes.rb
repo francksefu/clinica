@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :avaliacao_instrumentos do
     resources :avaliados, only: [:new, :create]
     get "/avaliado_response", to: "avaliacao_instrumentos#avaliado_response"
-    post "/update_score", to: "avaliacao_instrumentos#update_score"
+    patch "/update_score", to: "avaliacao_instrumentos#update_score"
   end
 
   resources :instrumentos
