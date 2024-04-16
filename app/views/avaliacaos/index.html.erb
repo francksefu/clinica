@@ -1,14 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Avaliacaos</h1>
+<h1 class="text-center font mt-3 mb-3">Avaliacaos</h1>
 
 <div id="avaliacaos">
   <% @avaliacaos.each do |avaliacao| %>
     <%= render avaliacao %>
-    <p>
-      <%= link_to "Show this avaliacao", avaliacao %>
-    </p>
   <% end %>
 </div>
+<div class="row">
+  <div class="col-md-5"> </div>
+  <div class="col-md-2">
+    <%= link_to "New avaliacao", new_avaliacao_path, class: 'btn btn-primary' %>
+  </div>
+  <div class="col-md-5"> </div>
+</div>
 
-<%= link_to "New avaliacao", new_avaliacao_path %>
+

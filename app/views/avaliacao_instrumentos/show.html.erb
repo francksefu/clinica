@@ -1,13 +1,33 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @avaliacao_instrumento %>
-<% if @avaliacao_instrumento.estado == 'finished'%>
-  <span> pontuacao : <%= @avaliacao_instrumento.pontuacao %> </span>
-<% end %>
 
 <div>
-  <%= link_to "Edit this avaliacao instrumento", edit_avaliacao_avaliacao_instrumento_path(@avaliacao_instrumento) %> |
-  <%= link_to "Back to avaliacao instrumentos", avaliacao_avaliacao_instrumentos_path(@avaliacao) %>
+  <div class="row mb-3">
+    <div class="col-md-5"> </div>
+    <div class="col-md-2">
+      <%= link_to "Modificando o instrumento desta avaliação", edit_avaliacao_avaliacao_instrumento_path(@avaliacao_instrumento), class: 'btn btn-primary' %> 
+    </div>
+    <div class="col-md-5"> </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-5"> </div>
+    <div class="col-md-2">
+      <%= link_to "voltar aos instrumentos desta avaliação", avaliacao_avaliacao_instrumentos_path(@avaliacao), class: 'btn btn-primary' %>
+    </div>
+    <div class="col-md-5"> </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-5"> </div>
+    <div class="col-md-2">
+      <%= button_to "destroy this instrument from this evaluation", @avaliacao_instrumento, method: :delete, class: 'btn btn-danger' %>
+    </div>
+    <div class="col-md-5"> </div>
+  </div>
+  
+<div>
+  
+  
 
-  <%= button_to "Destroy this avaliacao instrumento", @avaliacao_instrumento, method: :delete %>
+  
 </div>
