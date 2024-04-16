@@ -1,0 +1,2 @@
+class Avaliado < ApplicationRecord
+end

@@ -1,0 +1,27 @@
+<%= form_with(model: avaliacao_instrumento) do |form| %>
+  <% if avaliacao_instrumento.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(avaliacao_instrumento.errors.count, "error") %> prohibited this avaliacao_instrumento from being saved:</h2>
+
+      <ul>
+        <% avaliacao_instrumento.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :avaliacao_id, style: "display: block" %>
+    <%= form.text_field :avaliacao_id %>
+  </div>
+
+  <div>
+    <%= form.label :instrumento_id, style: "display: block" %>
+    <%= form.text_field :instrumento_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
