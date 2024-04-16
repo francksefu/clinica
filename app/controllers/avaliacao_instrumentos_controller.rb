@@ -3,25 +3,34 @@ class AvaliacaoInstrumentosController < ApplicationController
 
   # GET /avaliacao_instrumentos or /avaliacao_instrumentos.json
   def index
+    @avaliacao = Avaliacao.find(params[:avaliacao_id])
     @avaliacao_instrumentos = AvaliacaoInstrumento.all
   end
 
   # GET /avaliacao_instrumentos/1 or /avaliacao_instrumentos/1.json
   def show
+    if current_user
+      @avaliacao = Avaliacao.find(params[:avaliacao_id])
+    end
   end
 
   # GET /avaliacao_instrumentos/new
   def new
+    @instrumentos = Instrumento.all
+    @avaliacao = Avaliacao.find(params[:avaliacao_id])
     @avaliacao_instrumento = AvaliacaoInstrumento.new
   end
 
   # GET /avaliacao_instrumentos/1/edit
   def edit
+    @avaliacao = Avaliacao.find(params[:avaliacao_id])
+    @instrumentos = Instrumento.all
   end
 
   # POST /avaliacao_instrumentos or /avaliacao_instrumentos.json
   def create
-    @avaliacao_instrumento = AvaliacaoInstrumento.new(avaliacao_instrumento_params)
+    @avaliacao = Avaliacao.find(params[:avaliacao_id])
+    @avaliacao_instrumento = @avaliacao.avaliacao_instrumentos.new(avaliacao_instrumento_params)
 
     respond_to do |format|
       if @avaliacao_instrumento.save
@@ -65,6 +74,6 @@ class AvaliacaoInstrumentosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def avaliacao_instrumento_params
-      params.require(:avaliacao_instrumento).permit(:avaliacao_id, :instrumento_id)
+      params.require(:avaliacao_instrumento).permit(:instrumento_id)
     end
 end

@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
+
   resources :avaliacao_instrumentos
   resources :instrumentos
-  resources :avaliados
-  resources :avaliacaos
+  resources :avaliados 
+    
+  resources :avaliacaos do
+    resources :avaliacao_instrumentos, only: [:new, :create, :index, :show, :edit]
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

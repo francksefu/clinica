@@ -65,6 +65,6 @@ class InstrumentosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def instrumento_params
-      params.require(:instrumento).permit(:pergunta_um, :pergunta_dois, :pergunta_tres, :pergunta_quatro, :pergunta_cinco)
+      params.require(:instrumento).permit(:titulo, :pergunta_um, :pergunta_dois, :pergunta_tres, :pergunta_quatro, :pergunta_cinco)
     end
 end

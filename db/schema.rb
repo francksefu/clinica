@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_16_070514) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_16_090647) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_16_070514) do
     t.bigint "instrumento_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "estado"
     t.index ["avaliacao_id"], name: "index_avaliacao_instrumentos_on_avaliacao_id"
     t.index ["instrumento_id"], name: "index_avaliacao_instrumentos_on_instrumento_id"
   end
@@ -31,6 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_16_070514) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "pontuacao"
     t.index ["user_id"], name: "index_avaliacaos_on_user_id"
   end
 
@@ -41,6 +43,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_16_070514) do
     t.date "data_de_nascimento"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "avaliacao_instrumento_id", null: false
+    t.index ["avaliacao_instrumento_id"], name: "index_avaliados_on_avaliacao_instrumento_id"
   end
 
   create_table "instrumentos", force: :cascade do |t|
@@ -51,6 +55,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_16_070514) do
     t.text "pergunta_cinco"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "titulo"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,4 +74,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_16_070514) do
   add_foreign_key "avaliacao_instrumentos", "avaliacaos"
   add_foreign_key "avaliacao_instrumentos", "instrumentos"
   add_foreign_key "avaliacaos", "users"
+  add_foreign_key "avaliados", "avaliacao_instrumentos"
 end

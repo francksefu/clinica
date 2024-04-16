@@ -1,6 +1,6 @@
 class AvaliacaosController < ApplicationController
   before_action :set_avaliacao, only: %i[ show edit update destroy ]
-
+  before_action :require_loggin
   # GET /avaliacaos or /avaliacaos.json
   def index
     @avaliacaos = Avaliacao.all
@@ -21,7 +21,7 @@ class AvaliacaosController < ApplicationController
 
   # POST /avaliacaos or /avaliacaos.json
   def create
-    @avaliacao = Avaliacao.new(avaliacao_params)
+    @avaliacao = current_user.avaliacaos.new(avaliacao_params)
 
     respond_to do |format|
       if @avaliacao.save
@@ -65,6 +65,12 @@ class AvaliacaosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def avaliacao_params
-      params.require(:avaliacao).permit(:nome, :cpf, :email, :data_de_nascimento, :user_id)
+      params.require(:avaliacao).permit(:nome, :cpf, :email, :data_de_nascimento)
+    end
+
+    def require_loggin
+      return if current_user
+  
+      redirect_to homes_path
     end
 end
