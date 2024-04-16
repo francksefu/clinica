@@ -1,6 +1,10 @@
-<h1>Avaliado response</h1>
+<h1 class="text-center font">Avaliado response</h1>
 
-<%= form_with(model: @avaliacao_instrumento, url: avaliacao_instrumento_update_score_path) do |form| %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2"> </div>
+    <div class="col-md-8">
+      <%= form_with(model: @avaliacao_instrumento, url: avaliacao_instrumento_update_score_path) do |form| %>
   <% if @avaliacao_instrumento.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(avaliacao_instrumento.errors.count, "error") %> prohibited this avaliacao_instrumento from being saved:</h2>
@@ -90,6 +94,12 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary mt-3'%>
   </div>
 <% end %>
+
+    </div>
+    <div class="col-md-2"> </div>
+  </div>
+</div>
+

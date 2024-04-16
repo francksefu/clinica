@@ -77,7 +77,7 @@ class AvaliacaoInstrumentosController < ApplicationController
     score_total += check_score(params[:avaliacao_instrumento][:pergunt_cinco])
     respond_to do |format|
       if @avaliacao_instrumento.update(estado: "finished", pontuacao: score_total)
-        format.html { redirect_to avaliados_path, notice: "Avaliacao instrumento was successfully updated."}
+        format.html { redirect_to thank_path, notice: "Avaliacao instrumento was successfully updated."}
       else
         format.html { render :avaliado_response, status: :unprocessable_entity }
       end
@@ -92,6 +92,9 @@ class AvaliacaoInstrumentosController < ApplicationController
     when 'muito confortável' then 0
     end
     return score
+  end
+
+  def thank
   end
 
   # DELETE /avaliacao_instrumentos/1 or /avaliacao_instrumentos/1.json

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get "/avaliado_response", to: "avaliacao_instrumentos#avaliado_response"
     patch "/update_score", to: "avaliacao_instrumentos#update_score"
   end
-
+  get "/thank", to: "avaliacao_instrumentos#thank"
   resources :instrumentos
   resources :avaliados 
     
