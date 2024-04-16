@@ -13,7 +13,8 @@
 <div class="row">
   <div class="col-md-2"> </div>
   <div class="col-md-8">
-    <%= link_to "+ Adicione um novo instrumento a esta avaliação", new_avaliacao_avaliacao_instrumento_path(@avaliacao), class: "btn btn-primary" %>
+    <%= link_to "+ Adicione um novo instrumento a esta avaliação", new_avaliacao_avaliacao_instrumento_path(@avaliacao), class: "btn btn-primary" %><br>
+    <%= link_to "retornar à avaliação", avaliacao_path(@avaliacao), class: "btn btn-primary mt-3" %>
   </div>
   <div class="col-md-2"> </div>
 </div>

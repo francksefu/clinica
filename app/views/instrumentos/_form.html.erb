@@ -1,4 +1,8 @@
-<%= form_with(model: instrumento) do |form| %>
+<div class="container-fluid">
+   <div class="row">
+    <div class="col-md-2"> </div>
+    <div class="col-md-8">
+      <%= form_with(model: instrumento) do |form| %>
   <% if instrumento.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(instrumento.errors.count, "error") %> prohibited this instrumento from being saved:</h2>
@@ -12,35 +16,41 @@
   <% end %>
   <div>
     <%= form.label :titulo, style: "display: block" %>
-    <%= form.text_field :titulo %>
+    <%= form.text_field :titulo, class: "input" %>
   </div>
 
   <div>
     <%= form.label :pergunta_um, style: "display: block" %>
-    <%= form.text_area :pergunta_um %>
+    <%= form.text_area :pergunta_um, class: "input" %>
   </div>
 
   <div>
     <%= form.label :pergunta_dois, style: "display: block" %>
-    <%= form.text_area :pergunta_dois %>
+    <%= form.text_area :pergunta_dois, class: "input" %>
   </div>
 
   <div>
     <%= form.label :pergunta_tres, style: "display: block" %>
-    <%= form.text_area :pergunta_tres %>
+    <%= form.text_area :pergunta_tres, class: "input" %>
   </div>
 
   <div>
     <%= form.label :pergunta_quatro, style: "display: block" %>
-    <%= form.text_area :pergunta_quatro %>
+    <%= form.text_area :pergunta_quatro, class: "input" %>
   </div>
 
   <div>
     <%= form.label :pergunta_cinco, style: "display: block" %>
-    <%= form.text_area :pergunta_cinco %>
+    <%= form.text_area :pergunta_cinco, class: "input" %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
+
+    </div>
+    <div class="col-md-2"> </div>
+   </div>
+</div>
+

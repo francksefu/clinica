@@ -4,7 +4,7 @@ class AvaliacaoInstrumentosController < ApplicationController
   # GET /avaliacao_instrumentos or /avaliacao_instrumentos.json
   def index
     @avaliacao = Avaliacao.find(params[:avaliacao_id])
-    @avaliacao_instrumentos = AvaliacaoInstrumento.all
+    @avaliacao_instrumentos = @avaliacao.avaliacao_instrumentos
   end
 
   # GET /avaliacao_instrumentos/1 or /avaliacao_instrumentos/1.json
