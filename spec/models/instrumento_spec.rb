@@ -1,6 +1,7 @@
 require 'rails_helper'
 RSpec.describe Instrumento, type: :model do
   subject { Instrumento.new(
+    titulo: 'Bene',
     pergunta_um: 'Fale sobre você',
     pergunta_dois: 'Como você preenche agora',
     pergunta_tres: 'Como você classifica seu sucesso mais recente em uma escala de 1 a 4?',
@@ -8,6 +9,11 @@ RSpec.describe Instrumento, type: :model do
     pergunta_cinco: 'Numa escala de 1 a 4, me diga se você gostou da sua vida'
   ) }
   before { subject.save }
+
+  it 'titulo should be present' do
+    subject.titulo = nil
+    expect(subject).to_not be_valid
+  end
 
   it 'pergunta um should be present' do
     subject.pergunta_um = nil
