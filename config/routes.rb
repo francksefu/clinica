@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :avaliacao_instrumentos
   resources :instrumentos
   resources :avaliados
