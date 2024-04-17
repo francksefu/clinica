@@ -1,21 +1,27 @@
 # README
 <h1> Clinica </h1>
 
-<h2>Get started</h2>
+<h2>Começar</h2>
 
-- This repository in clouds files with ruby language
-- I use : ruby 3.2.3, rails 7.1.3.2
-<h2>Setup</h2>
+- Este repositório em arquivos de nuvens com linguagem ruby
+- Eu uso: rubi 3.2.3, trilhos 7.1.3.2
+Configuração
 
-Clone the repository 
-  - git clone  ….
+<h2>Antes de executar</h2>
+
+Clone o repositório
+  - git clone https://github.com/francksefu/clinica.git
 
   - cd clinica
+  
 
 <h2>Before  run</h2>
 <p>
-Please check also the database.yml file, and update with the information of your Postgresl (username, password, port)
+Por favor, verifique também o arquivo database.yml e atualize com as informações do seu Postgresl (nome de usuário, senha, porta)
 </p>
-<h2>Run </h2>
+<h2>Executar </h2>
 
-Rails db:setup
+  rails db:setup
+
+<h2> demonstração em vídeo</h2>
+  https://youtu.be/I6gYMVxHF_s?si=hD8obhZ0PXG18vEY
