@@ -71,6 +71,6 @@ class AvaliacaosController < ApplicationController
     def require_loggin
       return if current_user
   
-      redirect_to homes_path
+      redirect_to new_user_session_path
     end
 end

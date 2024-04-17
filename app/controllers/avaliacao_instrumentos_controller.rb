@@ -34,7 +34,7 @@ class AvaliacaoInstrumentosController < ApplicationController
 
     respond_to do |format|
       if @avaliacao_instrumento.save
-        NotifierMailer.new_account(@avaliacao_instrumento.avaliacao.email, "http://127.0.0.1:3000/avaliacao_instrumentos/#{@avaliacao_instrumento.id}/avaliado_response").deliver_now
+        NotifierMailer.new_account(@avaliacao_instrumento.avaliacao.email, "http://127.0.0.1:3000/avaliacao_instrumentos/#{@avaliacao_instrumento.id}/avaliado_response")
         format.html { redirect_to avaliacao_avaliacao_instrumento_path(@avaliacao, @avaliacao_instrumento), notice: "Avaliacao instrumento was successfully created." }
         format.json { render :show, status: :created, location: @avaliacao_instrumento }
       else

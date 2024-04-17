@@ -63,3 +63,7 @@ select {
   color: #000;
   cursor: pointer;
 }
+
+.top {
+  margin-top: 10%;
+}

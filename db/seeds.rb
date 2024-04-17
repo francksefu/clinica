@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-User.create(email: 'psy@cg.com', password: '123456')
+User.create(email: 'psy@cg.com', password: '123456', role: 'psy')
 
 Instrumento.create(
   titulo: 'Sociais',
