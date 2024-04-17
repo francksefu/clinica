@@ -1,32 +1,24 @@
 <div id="<%= dom_id instrumento %>">
 
-  <p>
-    <strong>Titulo</strong>
-    <%= instrumento.titulo %>
-  </p>
-  <p>
-    <strong>Pergunta um:</strong>
-    <%= instrumento.pergunta_um %>
-  </p>
-
-  <p>
-    <strong>Pergunta dois:</strong>
-    <%= instrumento.pergunta_dois %>
-  </p>
-
-  <p>
-    <strong>Pergunta tres:</strong>
-    <%= instrumento.pergunta_tres %>
-  </p>
-
-  <p>
-    <strong>Pergunta quatro:</strong>
-    <%= instrumento.pergunta_quatro %>
-  </p>
-
-  <p>
-    <strong>Pergunta cinco:</strong>
-    <%= instrumento.pergunta_cinco %>
-  </p>
+<div class="container-fluid">
+  <div class="row mt-2 mb-3">
+    <h1 class="text-center font">Titulo : <%= instrumento.titulo %></h1>
+    <div class="col-md-2"> </div>
+    <div class="col-md-8 border border p-3 span font row">
+      <div class="border-end col-md-6">
+        <div class="mt-2 mb-2"> <strong>pergunt_um</strong> : <p><%= instrumento.pergunta_um %></p></div>
+        <div class="mt-2 mb-2"><strong>pergunta_dois</strong> : <p><%= instrumento.pergunta_dois %></p></div>
+        <div class="mt-2 mb-2"><strong>pergunta_tres</strong> : <p><%= instrumento.pergunta_tres %></p></div>
+        <div class="mt-2 mb-2"><strong>pergunta_quatro</strong> : <p><%= instrumento.pergunta_quatro %></p></div>
+        <div class="mt-2 mb-2"><strong>pergunta_cinco</strong> : <p><%= instrumento.pergunta_cinco %></p></div>
+      </div>
+      <div class="col-md-6">
+        <%= link_to "Show this instrumento", instrumento, class: "btn btn-primary" %>
+      </div> 
+    </div>
+    <div class="col-md-2"> </div>
+  </div>
+</div>
+  
 
 </div>

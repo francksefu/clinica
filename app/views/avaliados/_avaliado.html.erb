@@ -1,22 +1,22 @@
 <div id="<%= dom_id avaliado %>">
-  <p>
-    <strong>Nome:</strong>
-    <%= avaliado.nome %>
-  </p>
 
-  <p>
-    <strong>Cpf:</strong>
-    <%= avaliado.cpf %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= avaliado.email %>
-  </p>
-
-  <p>
-    <strong>Data de nascimento:</strong>
-    <%= avaliado.data_de_nascimento %>
-  </p>
+<div class="container-fluid">
+  <div class="row mt-2 mb-3">
+    <div class="col-md-2"> </div>
+    <div class="col-md-8 border border p-3 span font row">
+      <div class="border-end col-md-6">
+        <div class="mt-2 mb-2"> <strong>Nome</strong> : <span><%= avaliado.nome %></span></div>
+        <div class="mt-2 mb-2"><strong>CPF</strong> : <span><%= avaliado.cpf %></span></div>
+        <div class="mt-2 mb-2"><strong>Email</strong> : <span><%= avaliado.email %></span></div>
+        <div class="mt-2 mb-2"><strong>Data de nascimento</strong> : <span><%= avaliado.data_de_nascimento %></span></div>
+        
+      </div>
+      <div class="col-md-6">
+        <%= link_to "mostrar esta avaliado", avaliado, class: "btn btn-primary" %>
+      </div> 
+    </div>
+    <div class="col-md-2"> </div>
+  </div>
+</div>
 
 </div>

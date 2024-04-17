@@ -1,11 +1,33 @@
 <p style="color: green"><%= notice %></p>
+<%= link_to "voltar à página inicial", avaliacaos_path, class: "btn btn-dark mb-3 mt-2 ms-2" %>
 
 <%= render @avaliacao %>
 
 <div>
-  <%= link_to "Edit this avaliacao", edit_avaliacao_path(@avaliacao) %> |
-  <%= link_to "Back to avaliacaos", avaliacaos_path %>
+  <div class="row mb-3">
+    <div class="col-md-5"> </div>
+    <div class="col-md-2">
+      <%= link_to "Editar esta avaliação", edit_avaliacao_path(@avaliacao), class: "btn btn-primary" %> 
+    </div>
+    <div class="col-md-5"> </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-5"> </div>
+    <div class="col-md-2">
+      <%= link_to "Ver os instrumentos aplicados a estas avaliação", avaliacao_avaliacao_instrumentos_path(@avaliacao), class: "btn btn-primary" %>
+    </div>
+    <div class="col-md-5"> </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-5"> </div>
+    <div class="col-md-2">
+      <%= button_to "Destrua esta revisão", @avaliacao, method: :delete, class: "btn btn-danger" %>
+    </div>
+    <div class="col-md-5"> </div>
+  </div>
+  
 
-  | <%= link_to "see instrumento", avaliacao_avaliacao_instrumentos_path(@avaliacao) %>
-  <%= button_to "Destroy this avaliacao", @avaliacao, method: :delete %>
+
+  | 
+  
 </div>

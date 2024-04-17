@@ -3,8 +3,32 @@
 <%= render @avaliacao_instrumento %>
 
 <div>
-  <%= link_to "Edit this avaliacao instrumento", edit_avaliacao_avaliacao_instrumento_path(@avaliacao_instrumento) %> |
-  <%= link_to "Back to avaliacao instrumentos", avaliacao_avaliacao_instrumentos_path(@avaliacao, @avaliacao_instrumento) %>
+  <div class="row mb-3">
+    <div class="col-md-5"> </div>
+    <div class="col-md-2">
+      <%= link_to "Modificando o instrumento desta avaliação", edit_avaliacao_avaliacao_instrumento_path(@avaliacao_instrumento), class: 'btn btn-primary' %> 
+    </div>
+    <div class="col-md-5"> </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-5"> </div>
+    <div class="col-md-2">
+      <%= link_to "voltar aos instrumentos desta avaliação", avaliacao_avaliacao_instrumentos_path(@avaliacao), class: 'btn btn-primary' %>
+    </div>
+    <div class="col-md-5"> </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-5"> </div>
+    <div class="col-md-2">
+      <%= link_to "retourner a l avaliação", avaliacao_path(@avaliacao), class: 'btn btn-primary mb-3' %>
+      <%= button_to "destroy this instrument from this evaluation", @avaliacao_instrumento, method: :delete, class: 'btn btn-danger' %>
+    </div>
+    <div class="col-md-5"> </div>
+  </div>
+  
+<div>
+  
+  
 
-  <%= button_to "Destroy this avaliacao instrumento", @avaliacao_instrumento, method: :delete %>
+  
 </div>

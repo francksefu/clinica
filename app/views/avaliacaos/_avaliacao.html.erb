@@ -1,27 +1,21 @@
 <div id="<%= dom_id avaliacao %>">
-  <p>
-    <strong>Nome:</strong>
-    <%= avaliacao.nome %>
-  </p>
-
-  <p>
-    <strong>Cpf:</strong>
-    <%= avaliacao.cpf %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= avaliacao.email %>
-  </p>
-
-  <p>
-    <strong>Data de nascimento:</strong>
-    <%= avaliacao.data_de_nascimento %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= avaliacao.user_id %>
-  </p>
+<div class="container-fluid">
+  <div class="row mt-2 mb-3">
+    <div class="col-md-2"> </div>
+    <div class="col-md-8 border border p-3 span font row">
+      <div class="border-end col-md-6">
+        <div class="mt-2 mb-2"> <strong>Nome</strong> : <span><%= avaliacao.nome %></span></div>
+        <div class="mt-2 mb-2"><strong>CPF</strong> : <span><%= avaliacao.cpf %></span></div>
+        <div class="mt-2 mb-2"><strong>Email</strong> : <span><%= avaliacao.email %></span></div>
+        <div class="mt-2 mb-2"><strong>Data de nascimento</strong> : <span><%= avaliacao.data_de_nascimento %></span></div>
+        <div class="mt-2 mb-2"><strong>Função do usuário</strong> : <span><%= avaliacao.user.role %></span></div>
+      </div>
+      <div class="col-md-6">
+        <%= link_to "mostrar esta avaliação", avaliacao, class: "btn btn-primary" %>
+      </div> 
+    </div>
+    <div class="col-md-2"> </div>
+  </div>
+</div>
 
 </div>

@@ -4,7 +4,7 @@ class AvaliacaoInstrumentosController < ApplicationController
   # GET /avaliacao_instrumentos or /avaliacao_instrumentos.json
   def index
     @avaliacao = Avaliacao.find(params[:avaliacao_id])
-    @avaliacao_instrumentos = AvaliacaoInstrumento.all
+    @avaliacao_instrumentos = @avaliacao.avaliacao_instrumentos
   end
 
   # GET /avaliacao_instrumentos/1 or /avaliacao_instrumentos/1.json
@@ -34,7 +34,8 @@ class AvaliacaoInstrumentosController < ApplicationController
 
     respond_to do |format|
       if @avaliacao_instrumento.save
-        format.html { redirect_to avaliacao_instrumento_url(@avaliacao_instrumento), notice: "Avaliacao instrumento was successfully created." }
+        NotifierMailer.new_account(@avaliacao_instrumento.avaliacao.email, "http://127.0.0.1:3000/avaliacao_instrumentos/#{@avaliacao_instrumento.id}/avaliado_response").deliver_now
+        format.html { redirect_to avaliacao_avaliacao_instrumento_path(@avaliacao, @avaliacao_instrumento), notice: "Avaliacao instrumento was successfully created." }
         format.json { render :show, status: :created, location: @avaliacao_instrumento }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -54,6 +55,47 @@ class AvaliacaoInstrumentosController < ApplicationController
         format.json { render json: @avaliacao_instrumento.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def avaliado_response
+    @avaliacao_instrumento = AvaliacaoInstrumento.find(params[:avaliacao_instrumento_id])
+    respond_to do |format|
+      if @avaliacao_instrumento.avaliados[0]
+        format.html { render :avaliado_response }
+      else
+        format.html { redirect_to new_avaliacao_instrumento_avaliado_path, notice: "complete your response" }
+      end
+    end
+  end
+
+  def update_score
+    @avaliacao_instrumento = AvaliacaoInstrumento.find(params[:avaliacao_instrumento_id])
+    score_total = 0;
+    score_total += check_score(params[:avaliacao_instrumento][:pergunt_um])
+    score_total += check_score(params[:avaliacao_instrumento][:pergunt_dois])
+    score_total += check_score(params[:avaliacao_instrumento][:pergunt_tres])
+    score_total += check_score(params[:avaliacao_instrumento][:pergunt_quatro])
+    score_total += check_score(params[:avaliacao_instrumento][:pergunt_cinco])
+    respond_to do |format|
+      if @avaliacao_instrumento.update(estado: "finished", pontuacao: score_total)
+        format.html { redirect_to thank_path, notice: "Avaliacao instrumento was successfully updated."}
+      else
+        format.html { render :avaliado_response, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def check_score(response)
+    score = case response
+    when 'Muito desconfortável' then 3
+    when 'ligeiramente desconfortável' then 2
+    when 'confortável' then 1
+    when 'muito confortável' then 0
+    end
+    return score
+  end
+
+  def thank
   end
 
   # DELETE /avaliacao_instrumentos/1 or /avaliacao_instrumentos/1.json

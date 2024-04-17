@@ -1,12 +1,33 @@
 <div id="<%= dom_id avaliacao_instrumento %>">
-  <p>
-    <strong>Avaliacao:</strong>
-    <%= avaliacao_instrumento.avaliacao_id %>
-  </p>
-
-  <p>
-    <strong>Instrumento:</strong>
-    <%= avaliacao_instrumento.instrumento_id %>
-  </p>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2"> </div>
+      <div class="col-md-8 border p-3 font row">
+        <div class="border-end col-md-6">
+          <div class="mt-2 mb-2">
+            <h5> Avaliacao </h5>
+            <strong>Nome</strong> : <span><%= avaliacao_instrumento.avaliacao.nome %></span>
+            <strong>E-mail</strong> : <span><%= avaliacao_instrumento.avaliacao.email %></span>
+          </div>
+          <div class="mt-2 mb-2">
+            <h5> Instrumentos </h5>
+            <strong>Titulo</strong> : <span><%= avaliacao_instrumento.instrumento.titulo %></span>
+          </div>
+          <h5> Estados </h5>
+          <% if avaliacao_instrumento.estado != 'finished'%>
+            <span class="btn btn-secondary"> pending </span>
+          <% else %>
+            <span class="btn btn-success"><%= avaliacao_instrumento.estado %></span>
+            <h5> pontuacao </h5> <span class="btn btn-success"> <%= avaliacao_instrumento.pontuacao %> </span>
+          <% end %>
+        </div>
+        <div class="col-md-6">
+          <%= link_to "Veja o instrumento desta avaliação", avaliacao_avaliacao_instrumento_path(@avaliacao, avaliacao_instrumento), class: 'btn btn-primary' %>
+        </div>
+      </div>
+      <div class="col-md-2"> </div>
+    </div>
+</div>
+  
 
 </div>

@@ -1,22 +1,31 @@
-<%= form_with(model: avaliacao_instrumento, url: avaliacao_avaliacao_instrumentos_path) do |form| %>
-  <% if avaliacao_instrumento.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(avaliacao_instrumento.errors.count, "error") %> prohibited this avaliacao_instrumento from being saved:</h2>
+<div class="row">
+  <div class="col-md-3"> </div>
+  <div class="col-md-6">
+    <%= form_with(model: avaliacao_instrumento, url: avaliacao_avaliacao_instrumentos_path) do |form| %>
+      <% if avaliacao_instrumento.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(avaliacao_instrumento.errors.count, "error") %> prohibited this avaliacao_instrumento from being saved:</h2>
 
-      <ul>
-        <% avaliacao_instrumento.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% avaliacao_instrumento.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div>
-    <%= form.label :instrumento_id, style: "display: block" %>
-    <%= form.select :instrumento_id, Instrumento.all.order(:titulo).map{|instrumento| [instrumento.titulo, instrumento.id]} %>
+
+      <div>
+        <%= form.label :instrumento_id, "Escolha o instrumento", style: "display: block", class: "mt-2 mb-3" %>
+        <%= form.select :instrumento_id, Instrumento.all.order(:titulo).map{|instrumento| [instrumento.titulo, instrumento.id]} , class: "w-100" %>
+      </div>
+
+      <div>
+        <%= form.submit class: "btn btn-primary mt-3" %>
+      </div>
+    <% end %>
+
   </div>
+  <div class="col-md-3"> </div>
+</div>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
