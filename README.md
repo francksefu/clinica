@@ -26,7 +26,7 @@ Por favor, verifique também o arquivo database.yml e atualize com as informaç�
   lors de la connexion :
 - email : psy@cg.com
 - mot de passe : 123456
-pour le psychologue
+<br>pour le psychologue
 
 <h2> demonstração em vídeo</h2>
   https://youtu.be/I6gYMVxHF_s?si=hD8obhZ0PXG18vEY
