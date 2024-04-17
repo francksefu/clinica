@@ -34,7 +34,8 @@ class AvaliacaoInstrumentosController < ApplicationController
 
     respond_to do |format|
       if @avaliacao_instrumento.save
-        format.html { redirect_to avaliacao_instrumento_url(@avaliacao_instrumento), notice: "Avaliacao instrumento was successfully created." }
+        NotifierMailer.new_account(@avaliacao_instrumento.avaliacao.email, "http://127.0.0.1:3000/avaliacao_instrumentos/#{@avaliacao_instrumento.id}/avaliado_response").deliver_now
+        format.html { redirect_to avaliacao_avaliacao_instrumento_path(@avaliacao, @avaliacao_instrumento), notice: "Avaliacao instrumento was successfully created." }
         format.json { render :show, status: :created, location: @avaliacao_instrumento }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -59,7 +60,7 @@ class AvaliacaoInstrumentosController < ApplicationController
   def avaliado_response
     @avaliacao_instrumento = AvaliacaoInstrumento.find(params[:avaliacao_instrumento_id])
     respond_to do |format|
-      if @avaliacao_instrumento.avaliados
+      if @avaliacao_instrumento.avaliados[0]
         format.html { render :avaliado_response }
       else
         format.html { redirect_to new_avaliacao_instrumento_avaliado_path, notice: "complete your response" }
